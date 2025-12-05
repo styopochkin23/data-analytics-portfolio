@@ -22,7 +22,7 @@ The goal of the analysis is to evaluate business performance using key metrics a
 ---
 
 ## 📁 Project Files
-- `Module Task.xlsx` — main Excel file with full analysis
+- [Module Task.docx](https://github.com/user-attachments/files/23963697/Module.Task.docx) — main Excel file with full analysis
 
 ---
 
