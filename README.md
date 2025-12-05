@@ -1,37 +1,67 @@
 # Data Analytics Portfolio — Oleksandr Stopochkin
 
 This repository contains my data analytics projects focused on:
-- Business analytics
-- A/B testing
-- Data visualization
-- Product analytics
+- Business analytics  
+- A/B testing  
+- Data visualization  
+- Product analytics  
 
 ---
 
 ## 📊 Portfolio Projects
 
+---
+
 ### 1️⃣ Sales Performance Dashboard (Tableau)
-📁 Folder: Portfolio_Project_1  
-🔗 Live Dashboard:  
+
+📌 **Project Overview**  
+This project presents a comprehensive analysis of sales performance across time, devices, marketing channels, product categories, and geographic regions using interactive Tableau dashboards.
+
+🔗 **Live Dashboard:**  
 https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio1_17649269477990/SalesPerformanceDashboard?publish=yes  
+
+🛠 **Tools & Skills:**
+- Tableau Public  
+- Data Visualization  
+- Time Series Analysis  
+- Business Analytics  
+
+✅ **Key Outcome:**  
+The dashboard identifies key revenue drivers, seasonal trends, and top-performing product categories.
 
 ---
 
-### 2️⃣ A/B Testing — Conversion Funnel Analysis
-📁 Folder: Portfolio_Project_2  
-🔗 Tableau Dashboard:  
+### 2️⃣ A/B Test Analysis & Conversion Funnel (Python + Tableau)
+
+📌 **Project Overview**  
+This project analyzes the impact of multiple A/B tests on key conversion funnel events using statistical hypothesis testing.
+
+🔎 **Key funnel steps:**
+- add_payment_info  
+- add_shipping_info  
+- begin_checkout  
+- new_account  
+
+🛠 **Tools & Skills:**
+- Python (pandas, numpy, scipy)
+- Statistical Z-test
+- A/B Testing
+- Tableau Public
+
+📊 **Interactive Dashboard:**  
 https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio2_17649401032260/AB?publish=yes  
 
-📄 Results CSV: available inside the project folder
+📄 **Final Results CSV:**  
+https://drive.google.com/your_csv_link_here  
+
+📁 **Notebook:**
+- Portfolio_Project_2.ipynb  
+
+✅ **Key Outcome:**  
+Statistically significant changes were detected in key funnel steps, confirming real product impact.
 
 ---
 
 ## 👤 Author
 Oleksandr Stopochkin  
 🎯 Target Role: Junior Data Analyst
-
-
----
-
-📌 **Author:** Oleksandr Stopochkin  
-🎯 **Position Target:** Junior Data Analyst
