@@ -59,5 +59,5 @@ This dashboard allows stakeholders to **quickly identify business growth drivers
 
 ---
 
-📌 **Author:** Oleksandr (Sasha)  
+📌 **Author:** Oleksandr Stopochkin  
 🎯 **Position Target:** Junior Data Analyst
