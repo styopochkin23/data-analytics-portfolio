@@ -49,10 +49,10 @@ This project analyzes the impact of multiple A/B tests on key conversion funnel 
 - Tableau Public
 
 📊 **Interactive Dashboard:**  
-https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio2_17649401032260/AB?publish=yes  
+https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio2_17649401032260/Dashboard1?publish=yes%5D  
 
 📄 **Final Results CSV:**  
-https://drive.google.com/your_csv_link_here  
+(https://drive.google.com/file/d/1xthNicn9jFHRs0tg0hJvxQsoa3XY_acA/view?usp=sharing)  
 
 📁 **Notebook:**
 - Portfolio_Project_2.ipynb  
