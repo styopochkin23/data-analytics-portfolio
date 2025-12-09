@@ -1,67 +1,48 @@
-# Data Analytics Portfolio — Oleksandr Stopochkin
+# 📊 Data Analytics Portfolio — Oleksandr Stopochkin
 
-This repository contains my data analytics projects focused on:
-- Business analytics  
-- A/B testing  
-- Data visualization  
-- Product analytics  
+Hi there! 👋 I am an aspiring Data Analyst based in Ukraine. This repository features my portfolio projects focusing on solving business problems through data.
 
----
-
-## 📊 Portfolio Projects
+**My Core Skills:**
+* **Analysis:** SQL (BigQuery), Python (Pandas, NumPy, SciPy), Excel
+* **Visualization:** Tableau, Looker Studio
+* **Statistics:** A/B Testing, Hypothesis Testing
 
 ---
 
-### 1️⃣ Sales Performance Dashboard (Tableau)
+## 🚀 Featured Projects
 
-📌 **Project Overview**  
-This project presents a comprehensive analysis of sales performance across time, devices, marketing channels, product categories, and geographic regions using interactive Tableau dashboards.
+### 1️⃣ 📧 Email Marketing Analysis (SQL + Looker Studio)
+**Goal:** Analyze user engagement with email campaigns and rank countries by subscriber activity for an e-commerce platform.
 
-🔗 **Live Dashboard:**  
-https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio1_17649269477990/SalesPerformanceDashboard?publish=yes  
+* **Tools:** SQL (BigQuery), Window Functions, CTEs, Looker Studio.
+* **Key Outcome:** Identified the **United States** as the top market (~12k subscribers) and visualized daily sending dynamics for the top 10 countries.
+* **Key Skills:** Data Extraction, Data Cleaning, Advanced SQL Querying.
 
-🛠 **Tools & Skills:**
-- Tableau Public  
-- Data Visualization  
-- Time Series Analysis  
-- Business Analytics  
-
-✅ **Key Outcome:**  
-The dashboard identifies key revenue drivers, seasonal trends, and top-performing product categories.
+📂 **[View Project Files](SQL_Module_Project/)** | 📊 **[View Dashboard Screenshot](SQL_Module_Project/SQL%20Module%20Final%20Task.pdf)**
 
 ---
 
-### 2️⃣ A/B Test Analysis & Conversion Funnel (Python + Tableau)
+### 2️⃣ 🛍️ Sales Performance Dashboard (Tableau)
+**Goal:** Analyze sales performance across time, devices, marketing channels, and regions to identify revenue drivers.
 
-📌 **Project Overview**  
-This project analyzes the impact of multiple A/B tests on key conversion funnel events using statistical hypothesis testing.
+* **Tools:** Tableau Public, Time Series Analysis.
+* **Key Outcome:** The dashboard identifies seasonal trends and top-performing product categories to optimize marketing spend.
 
-🔎 **Key funnel steps:**
-- add_payment_info  
-- add_shipping_info  
-- begin_checkout  
-- new_account  
-
-🛠 **Tools & Skills:**
-- Python (pandas, numpy, scipy)
-- Statistical Z-test
-- A/B Testing
-- Tableau Public
-
-📊 **Interactive Dashboard:**  
-https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio2_17649401032260/Dashboard1?publish=yes%5D  
-
-📄 **Final Results CSV:**  
-(https://drive.google.com/file/d/1xthNicn9jFHRs0tg0hJvxQsoa3XY_acA/view?usp=sharing)  
-
-📁 **Notebook:**
-- Portfolio_Project_2.ipynb  
-
-✅ **Key Outcome:**  
-Statistically significant changes were detected in key funnel steps, confirming real product impact.
+🔗 **[View Live Interactive Dashboard](https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio1_17649269477990/SalesPerformanceDashboard?publish=yes)**
 
 ---
 
-## 👤 Author
-Oleksandr Stopochkin  
-🎯 Target Role: Junior Data Analyst
+### 3️⃣ 🧪 A/B Test Analysis & Conversion Funnel (Python)
+**Goal:** Analyze the impact of multiple A/B tests on key conversion funnel events (`add_payment_info` -> `new_account`) using statistical hypothesis testing.
+
+* **Tools:** Python (Pandas, SciPy), Z-test, Tableau.
+* **Key Outcome:** Detected statistically significant changes in key funnel steps, providing actionable recommendations for product changes.
+
+📂 **[View Python Notebook](Portfolio%20Projects/Portfolio_Project_2.ipynb)** | 📊 **[View Tableau Dashboard](https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio2_17649401032260/Dashboard1?publish=yes)**
+
+---
+
+## 👤 Contact Me
+**Oleksandr Stopochkin**
+* 🎯 **Role:** Junior Data Analyst
+* 📩 **Email:** stopochkin23@gmail.com
