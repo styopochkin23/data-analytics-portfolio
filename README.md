@@ -25,10 +25,10 @@ Hi there! 👋 I am an aspiring Data Analyst based in Ukraine. This repository f
 ### 2️⃣ 🛍️ Sales Performance Dashboard (Tableau)
 **Goal:** Analyze sales performance across time, devices, marketing channels, and regions to identify revenue drivers.
 
-* **Tools:** Tableau Public, Time Series Analysis.
+* **Tools:** Tableau Public, Time Series Analysis, Python (Data Cleaning).
 * **Key Outcome:** The dashboard identifies seasonal trends and top-performing product categories to optimize marketing spend.
 
-🔗 **[View Live Interactive Dashboard](https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio1_17649269477990/SalesPerformanceDashboard?publish=yes)**
+📂 **[View Python Notebook](Portfolio%20Projects/Portfolio_Project_1.ipynb)** | 🔗 **[View Live Interactive Dashboard](https://public.tableau.com/app/profile/oleksandr.stopochkin/viz/Portfolio1_17649269477990/SalesPerformanceDashboard?publish=yes)**
 
 ---
 
