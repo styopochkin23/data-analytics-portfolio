@@ -1,146 +1,36 @@
-Big Query SQL Code
+# 📧 Email Marketing & User Engagement Analysis
 
+## 📌 Project Overview
+This project focuses on analyzing user engagement with email campaigns for an e-commerce platform. The goal was to identify key markets, evaluate email delivery performance, and rank countries based on user activity using **SQL** and **Looker Studio**.
 
-/*
-  Підсумкове завдання: Аналіз динаміки емейлів та підписників.
-  Логіка:
-  1. CTE `account_data`: збирає дані про реєстрації акаунтів (дата створення).
-  2. CTE `email_data`: збирає дані про активність листів (дата відправки).
-  3. Об'єднуємо все через UNION ALL у довгий формат (Long Format).
-  4. Використовуємо віконні функції для розрахунку загальних сум по країні та рангів.
-  5. Фільтруємо ТОП-10 країн за кількістю підписників або листів.
-*/
+## 🛠️ Tools & Technologies
+* **SQL (Google BigQuery):** Data extraction, cleaning, and transformation.
+* **Looker Studio:** Data visualization and interactive dashboard creation.
+* **Techniques Used:**
+    * `CTEs` (Common Table Expressions) for modular query structure.
+    * `Window Functions` (DENSE_RANK, SUM OVER) for ranking and aggregation.
+    * `UNION ALL` to combine different data sources (account registrations vs. email logs).
+    * `JOINs` to link user, session, and email data.
 
+## 📊 Key Findings
+* **Top Market:** The **United States** is the absolute leader in both the number of subscribers and email engagement, significantly outperforming other regions.
+* **Global Reach:** The top 10 active countries include India, Canada, UK, and France.
+* **Data Volume:** Analyzed dynamics for over **300k+** email events and **12k+** subscriber records.
 
-WITH account_data AS (
-  -- 1. Збираємо метрики по АКАУНТАХ (реєстрації)
-  SELECT
-    s.date AS date, -- Дата створення акаунта
-    sp.country,
-    a.send_interval,
-    a.is_verified,
-    a.is_unsubscribed,
-    COUNT(DISTINCT a.id) AS account_cnt, -- Рахуємо кількість акаунтів
-    0 AS sent_msg,    -- Для цієї частини ці метрики дорівнюють 0
-    0 AS open_msg,
-    0 AS visit_msg
-  FROM
-    `DA.account` a
-  JOIN
-    `DA.account_session` acs ON a.id = acs.account_id
-  JOIN
-    `DA.session` s ON acs.ga_session_id = s.ga_session_id
-  JOIN
-    `DA.session_params` sp ON acs.ga_session_id = sp.ga_session_id
-  GROUP BY
-    1, 2, 3, 4, 5
-),
+## 📈 Dashboard Visualization
+*The interactive dashboard visualizes the daily email sending dynamics and ranks countries by subscriber count.*
 
+![Looker Studio Dashboard]([dashboard.png](https://lookerstudio.google.com/reporting/eaf4b1f0-9e53-4847-814f-0924e92b5937
+))
 
-email_data AS (
-  -- 2. Збираємо метрики по ЕМЕЙЛАХ (відправка, відкриття, кліки)
-  SELECT
-    DATE_ADD(s.date, INTERVAL es.sent_date DAY) AS date, -- Розраховуємо реальну дату відправки
-    sp.country,
-    a.send_interval,
-    a.is_verified,
-    a.is_unsubscribed,
-    0 AS account_cnt, -- Тут акаунти не рахуємо
-    COUNT(DISTINCT es.id_message) AS sent_msg,
-    COUNT(DISTINCT eo.id_message) AS open_msg,
-    COUNT(DISTINCT ev.id_message) AS visit_msg
-  FROM
-    `DA.email_sent` es
-  JOIN
-    `DA.account` a ON es.id_account = a.id
-  JOIN
-    `DA.account_session` acs ON a.id = acs.account_id
-  JOIN
-    `DA.session` s ON acs.ga_session_id = s.ga_session_id
-  JOIN
-    `DA.session_params` sp ON acs.ga_session_id = sp.ga_session_id
-  LEFT JOIN
-    `DA.email_open` eo ON es.id_message = eo.id_message
-  LEFT JOIN
-    `DA.email_visit` ev ON es.id_message = ev.id_message
-  GROUP BY
-    1, 2, 3, 4, 5
-),
+## 💻 SQL Query Structure
+The analysis was performed using a single optimized query structured as follows:
+1.  **CTE `account_data`:** Aggregates account registration metrics.
+2.  **CTE `email_data`:** Aggregates email interaction metrics (sent, opened, clicked).
+3.  **Data Combination:** Uses `UNION ALL` to merge datasets into a long format.
+4.  **Ranking:** Applies `DENSE_RANK()` to identify top-performing countries.
 
+*(Full SQL code is available in the [SQL_Query.sql](SQL_Query.sql) file)*
 
-combined_data AS (
-  -- 3. Об'єднуємо дані через UNION ALL
-  SELECT * FROM account_data
-  UNION ALL
-  SELECT * FROM email_data
-),
-
-
-aggregated_final AS (
-  -- 4. Агрегуємо дані після об'єднання
-  SELECT
-    date,
-    country,
-    send_interval,
-    is_verified,
-    is_unsubscribed,
-    SUM(account_cnt) AS account_cnt,
-    SUM(sent_msg) AS sent_msg,
-    SUM(open_msg) AS open_msg,
-    SUM(visit_msg) AS visit_msg
-  FROM
-    combined_data
-  GROUP BY
-    1, 2, 3, 4, 5
-),
-
-
-window_calculations AS (
-  -- 5. Рахуємо загальні суми по країні та Ранги (Window Functions)
-  SELECT
-    *,
-    SUM(account_cnt) OVER(PARTITION BY country) AS total_country_account_cnt,
-    SUM(sent_msg) OVER(PARTITION BY country) AS total_country_sent_cnt
-  FROM
-    aggregated_final
-),
-
-
-ranked_data AS (
-  -- 6. Присвоюємо ранги
-  SELECT
-    *,
-    DENSE_RANK() OVER(ORDER BY total_country_account_cnt DESC) AS rank_total_country_account_cnt,
-    DENSE_RANK() OVER(ORDER BY total_country_sent_cnt DESC) AS rank_total_country_sent_cnt
-  FROM
-    window_calculations
-)
-
-
--- 7. Фінальна вибірка ТОП-10
-SELECT
-  *
-FROM
-  ranked_data
-WHERE
-  rank_total_country_account_cnt <= 10 
-  OR rank_total_country_sent_cnt <= 10
-ORDER BY
-  rank_total_country_account_cnt, date;
-
-
-
-
-BigQuery Results
-
-
-
-https://drive.google.com/file/d/17HQM4corncHkVkpk7F6vyUsX3k1GEUmO/view?usp=sharing
-
-
-Looker Studio Visualization
-
-
-
-
-https://lookerstudio.google.com/reporting/eaf4b1f0-9e53-4847-814f-0924e92b5937
+## 🔢 Query Results (Snippet)
+![BigQuery Results](sql_results.png)
