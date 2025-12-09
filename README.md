@@ -18,7 +18,7 @@ Hi there! 👋 I am an aspiring Data Analyst based in Ukraine. This repository f
 * **Key Outcome:** Identified the **United States** as the top market (~12k subscribers) and visualized daily sending dynamics for the top 10 countries.
 * **Key Skills:** Data Extraction, Data Cleaning, Advanced SQL Querying.
 
-📂 **[View Project Files](SQL_Module_Project/)** | 📊 **[View Dashboard Screenshot](SQL_Module_Task.pdf)**
+📂 **[View Project Files](SQL_Module_Project/)** 
 
 ---
 
